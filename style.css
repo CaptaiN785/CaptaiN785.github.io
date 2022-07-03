@@ -1,0 +1,147 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing:border-box;
+}
+
+/* Animation block */
+
+@keyframes active_border {
+    0%, 100%{
+        left:0;
+        width:100%;
+    }
+    50%{
+        left:50%;
+        width:0;
+    }
+}
+
+
+
+/* Animation block end here */
+
+
+
+:root{
+    --main-font:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --color-cyan:rgb(9, 136, 221);
+    --color-light-cyan:rgb(51, 167, 245);
+    --color-nav:rgb(0, 114, 129);
+}
+#nav-bar{
+    padding:1rem 2rem;
+    position: fixed;
+    left:0;
+    right:0;
+    top:0;
+    background:none;
+}
+.logo{
+    display:inline-block;
+    color:#fff;
+    font-family:var(--main-font);
+    text-decoration: none;
+    font-size:2.5rem;
+    font-weight: bold;
+}
+.nav-list{
+    position: relative;
+    list-style: none;
+    display:inline-block;
+    margin-left: 2rem;;
+}
+.nav-items{
+    display: inline-block;
+    padding:0 10px;
+}
+.nav-items a{
+    color:#fff;
+    text-decoration: none;
+    font-size:1.2rem;
+    font-family: var(--main-font);
+}
+
+#nav-btn{
+    padding:10px;
+    border-radius: 50%;
+    transform: rotate(90deg);
+    border:none;
+    font-weight: bold;
+    font-size:1.2rem;
+    background-color: var(--color-light-cyan);
+    color:#fff;
+    float:right;
+    display: none;
+    margin-top:1.2rem;
+}
+.active{
+    position:relative;
+}
+.active::after{
+    content:'';
+    position: absolute;
+    width:100%;
+    height:2px;
+    bottom:-5px;
+    left:0;
+    background:linear-gradient(90deg, #fff,var(--color-cyan),var(--color-cyan), #fff);
+    animation: active_border 2s linear infinite;
+}
+section{
+    width:100vw;
+    height: 100vh;
+}
+
+#home{
+    background:url('background-1.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width:100vw;
+    height: 100vh;
+    display: flex;
+    align-items:center;
+    flex-direction: row;
+    justify-content: center;
+}
+#home .welcome-home{
+    display:inline-block;
+    color:#fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:3rem;
+}
+.welcome-home p{
+    max-width: 18ch;
+    text-align:center;
+    text-shadow: 0 0 10px var(--color-cyan);
+    font-weight: bold;
+}
+
+/* Screen minimizing and maximizing */
+
+@media screen and (max-width:600px) {
+    #nav-btn{
+        display: block;
+    } 
+    .nav-list{
+        display:none;
+        position:absolute;
+        background:var(--color-cyan);
+        left:0;
+        right:0;
+        margin:0;
+        top:100px;
+        text-align: center;
+        padding:1rem;
+        border-radius: 1rem;
+    }
+    .nav-items{
+        display: block;
+        margin:10px auto;
+    }
+    .active::after{
+        background:linear-gradient(90deg, #fff,var(--color-light-cyan),var(--color-light-cyan), #fff);
+    }
+}
+
+/* Screen ends here */
