@@ -16,3 +16,4 @@ window.onscroll = function(){
         document.getElementById("nav-bar").style.background = "none";
     }
 }
+// Changing it to check the git status
