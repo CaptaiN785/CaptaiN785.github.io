@@ -227,6 +227,7 @@
     padding:1rem;
     z-index: 4;
     overflow: hidden;
+    box-shadow: 0 0 4px var(--primary-light);
 }
 .card-hover{
     z-index: -1;
@@ -420,6 +421,8 @@
     position: relative;
     z-index: 4;
     overflow: hidden;
+    border-radius: 4px;
+    box-shadow: 0 0 4px var(--primary-light);
 }
 .certificate-container::before,
 .certificate-container::after{
