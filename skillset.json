@@ -18,7 +18,7 @@
         },
         {
             "category": "Frameworks",
-            "skills":["Django", "Flask", "Streamlit", "RegEx", "Springboot"]
+            "skills":["Django", "Flask", "Streamlit", "RegEx", "Springboot", "Git"]
         }
     ]
 }

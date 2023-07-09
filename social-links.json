@@ -1,0 +1,19 @@
+{
+    "social":[
+        {
+            "title":"LinkedIn",
+            "innerHTML":"<i class='fa-brands fa-linkedin'></i>",
+            "link":"https://www.linkedin.com/in/captain785/"
+        },
+        {
+            "title":"Github",
+            "innerHTML":"<i class='fa-brands fa-square-github'></i>",
+            "link":"http://github.com/captain785"
+        },
+        {
+            "title":"Instagram",
+            "innerHTML":"<i class='fa-brands fa-instagram'></i>",
+            "link":"https://www.instagram.com/__captain785__/"
+        }
+    ]
+}

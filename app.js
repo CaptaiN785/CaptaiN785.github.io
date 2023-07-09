@@ -37,11 +37,13 @@ var createNavBar = ()=>{
     var aboutme = createLink("#aboutme", "About me");
     var projects = createLink("#projects", "Projects");
     var skills = createLink("#skills", "Skills");
+    var certificates = createLink("#certificates", "Certifications");
     var contact = createLink("#contact", "Contact me");
     linksDiv.appendChild(home);
     linksDiv.appendChild(aboutme);
     linksDiv.appendChild(projects);
     linksDiv.appendChild(skills);
+    linksDiv.appendChild(certificates);
     linksDiv.appendChild(contact);
     linksDiv.classList.add("links");
     nav.appendChild(linksDiv);
@@ -64,7 +66,13 @@ var createHomePage = () => {
 
     var name = document.createElement("h2");
     name.classList.add("my-name");
-    name.innerHTML = "Hi, I am<br>Mukesh Kumar Thakur";
+    name.innerHTML = "Hi, I am";
+    var firstLayer =  document.createElement('p');
+    firstLayer.innerText = "Mukesh Kumar Thakur";
+    var secondLayer =  document.createElement('p');
+    secondLayer.innerText = "Mukesh Kumar Thakur";
+    name.appendChild(firstLayer);    
+    name.append(secondLayer);    
 
     var designation = document.createElement("h1");
     designation.classList.add("designation");
@@ -132,14 +140,17 @@ var createAboutMe = () => {
     var heading = document.createElement("h1");
     heading.innerHTML = "About <span>me</span>";
     var about = document.createElement("p");
-    about.innerHTML = "Lorem ipsum dolor, sit amet consectetur adipisicing elit.\
-                        Sequi deleniti est ad optio eaque voluptatibus \
-                        quasi error maxime repellendus aspernatur. \
-                        Natus, repellat. Eum facere saepe aperiam \
-                        Sequi deleniti est ad optio eaque voluptatibus<br><br> \
-                        quasi error maxime repellendus aspernatur. \
-                        Natus, repellat. Eum facere saepe aperiam \
-                        consequatur veritatis aspernatur quibusdam.";
+    about.innerHTML = "\
+    Hi, I am Mukesh Kumar Thakur, a final year student, \
+    pursuing Computer Science and Engineering from Chandigarh \
+    University, Mohali, Punjab.<br><br>\
+    \
+    Passionate about implementing and launching new projects. \
+    Ability to translate business requirements into technical solutions.\
+    Looking to start my career as entry-level \
+    software engineer/Data Analyst/Web developer \
+    with a reputed firm driven by technology.\
+    ";
 
     textDiv.appendChild(heading);
     textDiv.append(about);
@@ -356,7 +367,7 @@ var createSkills = () =>{
         allSkillSet.forEach(skill =>{
 
             var skillDiv = document.createElement("div");
-            
+
             var skillCategory = document.createElement("h2");
             skillCategory.innerText = skill.category;
             skillDiv.appendChild(skillCategory);
@@ -384,6 +395,136 @@ var createSkills = () =>{
     return skills;
 }
 
+var createCertificate = () => {
+    
+    var certificates = document.createElement("section");
+    certificates.id = "certificates";
+
+
+    var headDiv = document.createElement("div");
+    headDiv.classList.add("head-div");
+
+    var heading = document.createElement("h1");
+    heading.innerHTML = "My <span>certifications</span>";
+    headDiv.appendChild(heading);
+
+    // It will store all the certificates.
+    var container = document.createElement("div");
+    container.classList.add("container");
+
+    fetch("./certificates.json")
+    .then(response =>{
+        return response.json()
+    })
+    .then(data =>{
+        const certifications = data.certificates;
+
+        certifications.forEach(certificate => {
+
+            var certificateContainer = document.createElement("div");
+            certificateContainer.classList.add("certificate-container");
+
+            var viewBtn = document.createElement("button");
+            viewBtn.type = "button";
+            viewBtn.innerHTML = '<i class="fa-sharp fa-solid fa-eye"></i>';
+            certificateContainer.appendChild(viewBtn);
+
+            viewBtn.addEventListener("click", (e) =>{
+                var modal = document.createElement("modal");
+                modal.classList.add("modal");
+
+                var closeBtn = document.createElement("button");
+                closeBtn.type = "button";
+                closeBtn.innerHTML = 'X';
+                closeBtn.addEventListener("click", () =>{
+                    container.removeChild(modal);
+                })
+
+                modal.appendChild(closeBtn);
+
+                var iframe = document.createElement("embed");
+                iframe.src = certificate.link;
+                
+                // when image comes it strech the image
+                // this protects to strech the image.
+                if(certificate.type === "img"){
+                    modal.style.maxWidth = "max-content";
+                }
+
+                modal.appendChild(iframe);
+
+                container.appendChild(modal);
+            })
+            
+            var thumbnail = document.createElement("div");
+            thumbnail.classList.add("thumbnail");
+
+            var thumbImage = document.createElement("img");
+            thumbImage.src = certificate.thumbnail;
+            thumbnail.appendChild(thumbImage);
+            
+            certificateContainer.appendChild(thumbnail);
+
+            var textContainer = document.createElement("div");
+            textContainer.classList.add("text-container");
+
+            var title = document.createElement("h3");
+            title.innerText = certificate.title;
+            textContainer.appendChild(title);
+
+            var issuedOn = document.createElement("p");
+            issuedOn.innerText = "Issued on: " + certificate.issuedon;
+            textContainer.appendChild(issuedOn);
+
+            var issuedBy = document.createElement("p");
+            issuedBy.innerText = "Issued by: " + certificate.issuedby;
+            textContainer.appendChild(issuedBy);
+
+            certificateContainer.appendChild(textContainer);
+            container.appendChild(certificateContainer);
+        })
+    })
+    
+    certificates.appendChild(headDiv);
+    certificates.appendChild(container);
+    return certificates;
+}
+
+var createSocialLink = () =>{
+
+    var socialLink = document.createElement("div");
+    socialLink.id = "social-link";
+
+    // LinkedIn
+    // Instagram
+    // Github
+    // Leetcode
+
+    fetch("./social-links.json")
+    .then(res =>{
+        return res.json()
+    })
+    .then(data =>{
+        links = data.social;
+        links.forEach(link =>{
+            var tag = document.createElement("a");
+            tag.href = link.link;
+            tag.title = link.title;
+            tag.target = "_blank";
+            tag.innerHTML = link.innerHTML;
+            socialLink.appendChild(tag);
+        })
+    })
+
+    
+
+
+
+    return socialLink;
+}
+
+var socialLink = createSocialLink();
+body.appendChild(socialLink);
 
 var nav = createNavBar();
 body.appendChild(nav);
@@ -399,6 +540,9 @@ body.appendChild(projects);
 
 const skills = createSkills();
 body.appendChild(skills);
+
+const certificates = createCertificate();
+body.appendChild(certificates);
 
 const contact = createContact();
 body.appendChild(contact);

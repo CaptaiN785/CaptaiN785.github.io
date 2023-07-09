@@ -1,29 +1,44 @@
 {
     "projectList":[
         {
-            "title":"Online Examination System",
-            "src": "./images/card-image.png",
-            "link":"external link"
+            "title":"book Recommender System",
+            "src": "https://images-platform.99static.com/GOoa-JgMK_7MPLzsJ_8wENHt1jU=/0x0:960x960/500x500/top/smart/99designs-contests-attachments/113/113416/attachment_113416052",
+            "link":"https://captain785-bookrecommender-streamlit-app-mgjfvk.streamlit.app/"
         },
         {
-            "title":"Online Examination System",
-            "src": "./images/card-image.png"
+            "title":"Flight Fare Prediction",
+            "src": "https://img.freepik.com/free-vector/two-passports-with-boarding-passes-tickets-realistic-set-international-air-travel-agency-advertisement-poster_1284-17605.jpg?w=826&t=st=1688931041~exp=1688931641~hmac=829b9b082169a30f6c35025d521cd42f9abd03a4b6ddf011ec91ccd8e6168a90",
+            "link":"https://flightfareprediction.pythonanywhere.com/"
         },
         {
-            "title":"Online Examination System",
-            "src": "./images/card-image.png"
+            "title":"WhatsApp Chat Analysis",
+            "src": "https://img.freepik.com/free-vector/flat-design-phone-text-bubble_23-2149459167.jpg?w=826&t=st=1688931178~exp=1688931778~hmac=016e5b264f67ccaabb431f5b850e4065a44b543751c44529f8bd44d6cc89a7dd",
+            "link":"https://captain785-whatsapp-chat-analysis-chat-analyzer-jwqn74.streamlit.app/"
         },
         {
-            "title":"Online Examination System",
-            "src": "./images/card-image.png"
+            "title":"Malaria Detection using CNN",
+            "src": "https://img.freepik.com/free-photo/male-medical-figure-with-sore-throat-virus-cells_1048-7650.jpg?w=826&t=st=1688931422~exp=1688932022~hmac=c50c43ae8ed2c9809792b63d09666273c2d56bc52bbc3a4e6419e4cbe227a1cf",
+            "link":"https://malariadetection.streamlit.app/"
         },
         {
-            "title":"Online Examination System",
-            "src": "./images/card-image.png"
+            "title":"CuShare: File and Code sharing",
+            "src": "https://img.freepik.com/free-photo/file-document-folder-icon-illustration_53876-88544.jpg?w=826&t=st=1688931614~exp=1688932214~hmac=0bd8ca86501f6658aa6f4a9216879647d731b3ae197b0eee8da0a4a803238cb1",
+            "link":"https://cushare.onrender.com/"
         },
         {
-            "title":"Online Examination System",
-            "src": "./images/card-image.png"
+            "title":"Movie Recommender",
+            "src": "https://img.freepik.com/free-photo/cinema-still-life_23-2148017233.jpg?w=826&t=st=1688931735~exp=1688932335~hmac=cb55a0d021eaf7e06cf95ea431213f54784f79d203be7e642f88da1db85a2c2f",
+            "link":"https://captain785-movie-recommender-streamlit-app-vh6mqb.streamlit.app/"
+        },
+        {
+            "title":"Super Store Excel Dashboard",
+            "src": "https://img.freepik.com/premium-photo/man-is-standing-front-computer-screen-that-says-data-analytics-it_894855-2456.jpg?w=826",
+            "link":"https://superstoredashboard.netlify.app/"
+        },
+        {
+            "title":"Medical Store Management",
+            "src": "https://img.freepik.com/free-vector/people-shopping-isometric-pharmacy_52683-40845.jpg?w=826&t=st=1688932088~exp=1688932688~hmac=518cbfc7698a9bb8b11208bc6ce7e4a297d163223fd6e1f96af78a35a3961cea",
+            "link":"https://github.com/CaptaiN785/MedicalStoreManagementSystem"
         }
     ]
 }

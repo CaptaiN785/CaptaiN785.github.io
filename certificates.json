@@ -1,0 +1,52 @@
+{
+    "certificates":[
+        {
+            "issuedby":"Google (Coursera)",
+            "issuedon":"Oct 2021",
+            "type":"embed",
+            "title":"Crash Course on Python",
+            "thumbnail":"https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png",
+            "link":"./certifications/python-coursera.pdf"
+        },
+        {
+            "issuedby":"DeepLearning.AI (Coursera)",
+            "issuedon":"Apr 2022",
+            "type":"embed",
+            "title":"DeepLearning.AI TensorFlow Developer",
+            "thumbnail":"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tensorflow_logo.svg/1200px-Tensorflow_logo.svg.png",
+            "link":"./certifications/tensorflow.pdf"
+        },
+        {
+            "issuedby":"IIT Kharagpur (NPTEL)",
+            "issuedon":"Mar 2023",
+            "type":"img",
+            "title":"Data Mining",
+            "thumbnail":"https://cdn-icons-png.flaticon.com/512/5139/5139739.png",
+            "link":"./certifications/datamining-nptel.jpg"
+        },
+        {
+            "issuedby":"IIT Kharagpur (NPTEL)",
+            "issuedon":"Oct 2021",
+            "type":"img",
+            "title":"Programming in Java",
+            "thumbnail":"https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/181_Java_logo_logos-512.png",
+            "link":"./certifications/java-nptel.jpg"
+        },
+        {
+            "issuedby":"HackerRank",
+            "issuedon":"Aug 2021",
+            "type":"embed",
+            "title":"SQL (Basic)",
+            "thumbnail":"https://www.freepnglogos.com/uploads/logo-mysql-png/logo-mysql-part-azure-sql-database-with-azure-active-directory-17.png",
+            "link":"./certifications/sql_basic certificate.pdf"
+        },
+        {
+            "issuedby":"Google (Coursera)",
+            "issuedon":"Dec 2021",
+            "type":"embed",
+            "title":"Introduction to Git and GitHub",
+            "thumbnail":"https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+            "link":"./certifications/git.pdf"
+        }
+    ]
+}
