@@ -1,0 +1,24 @@
+{
+    "skillset":[
+        {   
+            "category": "Programming",
+            "skills":["C/C++", "Java", "Python"]
+        },
+        {
+            "category": "Web Dev",
+            "skills":["HTML", "CSS", "Javascript"]
+        },
+        {
+            "category": "Data Science",
+            "skills":["Machine Learning", "Deep Learning", "Natural Language Processing", "Python", "Excel", "Power-BI","Tensorflow"]
+        },
+        {
+            "category": "Databases",
+            "skills":["MYSQL", "MongoDB"]
+        },
+        {
+            "category": "Frameworks",
+            "skills":["Django", "Flask", "Streamlit", "RegEx", "Springboot"]
+        }
+    ]
+}

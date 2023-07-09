@@ -328,6 +328,59 @@ var createSkills = () =>{
     var skills = document.createElement("section");
     skills.id = "skills";
 
+    var headDiv = document.createElement("div");
+    headDiv.classList.add("head-div");
+    var h1 = document.createElement("h1");
+    h1.innerHTML = "My <span>skills<span>";
+    headDiv.appendChild(h1);
+
+
+    var skillset = document.createElement("div");
+    skillset.classList.add("skillset");
+
+   
+
+
+
+    fetch("./skillset.json")
+    .then(response =>{
+        return response.json();
+    })
+    .then(allSkills =>{
+
+        const allSkillSet = allSkills.skillset;
+
+        let skillLength = allSkillSet.length;
+        let counter = 1;
+
+        allSkillSet.forEach(skill =>{
+
+            var skillDiv = document.createElement("div");
+            
+            var skillCategory = document.createElement("h2");
+            skillCategory.innerText = skill.category;
+            skillDiv.appendChild(skillCategory);
+
+            skill.skills.forEach(curSkill =>{
+                var p = document.createElement("p");
+                p.innerText = curSkill;
+                skillDiv.appendChild(p);
+            })
+            skillset.appendChild(skillDiv);
+            if(counter !== skillLength){
+                 // creating a seperator to seperate categories
+                var seperator = document.createElement("div");
+                seperator.classList.add("seperator");
+                seperator.innerHTML= "";
+                skillset.appendChild(seperator);
+            }
+            counter++;
+        })
+    })
+
+
+    skills.appendChild(headDiv);
+    skills.appendChild(skillset);
     return skills;
 }
 
