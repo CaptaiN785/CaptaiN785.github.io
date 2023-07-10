@@ -9,6 +9,18 @@ var createLink = (link, text, target = "_self") =>{
     return a;
 }
 
+var addAOS = (element, data) =>{
+    var prefix = "data-aos";
+    for(const [key, value] of Object.entries(data)){
+        if(key === ""){
+            element.setAttribute(prefix, value);
+        }else{
+            element.setAttribute(prefix+"-"+key, value);
+        }
+    }
+}
+
+
 var createNavBar = ()=>{
 
     var navWrap = document.createElement('nav');
@@ -31,7 +43,9 @@ var createNavBar = ()=>{
     nav.appendChild(logoDiv);
     logo.classList.add('logo');
     logoDiv.appendChild(logo);
-    
+    logoDiv.classList.add("logo-div");
+    addAOS(logoDiv, {"":"fade-down", "duration":"400"});
+
     // creating links
     var home = createLink("#home", "Home");
     var aboutme = createLink("#aboutme", "About me");
@@ -47,6 +61,7 @@ var createNavBar = ()=>{
     linksDiv.appendChild(contact);
     linksDiv.classList.add("links");
     nav.appendChild(linksDiv);
+    addAOS(linksDiv, {"":"fade-down","duration":"600", "delay":"400"});
 
 
     // Close button operations
@@ -72,16 +87,18 @@ var createHomePage = () => {
     var secondLayer =  document.createElement('p');
     secondLayer.innerText = "Mukesh Kumar Thakur";
     name.appendChild(firstLayer);    
-    name.append(secondLayer);    
+    name.append(secondLayer);
+    addAOS(name, {"":"fade-down-right", "duration":"700"})
 
     var designation = document.createElement("h1");
     designation.classList.add("designation");
     designation.innerText = "Data Science Aspirant";
-
+    addAOS(designation, {"":"zoom-in-right", "duration":"1000"})
     
     var btnDiv = document.createElement("div");
     btnDiv.classList.add("btn-div");
-    var hireMe = document.createElement("button");
+    var hireMe = document.createElement("a");
+    hireMe.href = "#contact";
     hireMe.innerText = "Hire me";
     hireMe.classList.add("primary-btn");
     
@@ -90,6 +107,7 @@ var createHomePage = () => {
     downloadCV.innerHTML = "Download CV <i class='fa-sharp fa-solid fa-download'></i>";
     btnDiv.appendChild(hireMe);
     btnDiv.appendChild(downloadCV);
+    addAOS(btnDiv, {"":"fade-up", "duration":"400", "delay":"500"})
 
     textDiv.appendChild(name);
     textDiv.appendChild(designation);
@@ -102,7 +120,8 @@ var createHomePage = () => {
    
     var rightPart = document.createElement("div");
     rightPart.classList.add("right-part");
-    
+    addAOS(rightPart, {"":"fade-left", "duration":"700", "delay":"200"})
+
     var image = document.createElement("img");
     image.src = "./images/home.png";
     image.classList.add("image");
@@ -124,6 +143,7 @@ var createAboutMe = () => {
     // left part is for images
     var leftPart = document.createElement("div");
     leftPart.classList.add("left-part");
+    addAOS(leftPart, {"":"fade-right", "duration": "800", "delay":"50"})
 
     var image = document.createElement("img");
     image.src = "./images/home.png";
@@ -133,6 +153,7 @@ var createAboutMe = () => {
 
     var rightPart = document.createElement('div');
     rightPart.classList.add("right-part");
+    addAOS(rightPart, {"":"fade-left", "duration": "1000", "delay":"50"})
 
     var textDiv = document.createElement("div");
     textDiv.classList.add("text-div");
@@ -175,6 +196,7 @@ var createProject = () => {
     var heading = document.createElement("h1");
     heading.innerHTML = "My <span>projects</span>";
     headDiv.appendChild(heading);
+    addAOS(headDiv, {"":"flip-down", "duration":"1000"})
 
     // List of projects here.
     var projectGroup = document.createElement("div");
@@ -186,11 +208,17 @@ var createProject = () => {
     })
     .then(data => {
         const projectList = data.projectList;
+
+        let delay = 200;
+        // let imgDelay = 200;
+
         projectList.forEach(project => {
+
             //single projects
             var card = document.createElement("div");
             card.classList.add("card");
-            
+            addAOS(card, {"":"zoom-in-up", "duration":"400","delay":""+delay+""})
+            delay += 200;
             // this is for animation on hover
             var cardHover = document.createElement("div");
             cardHover.classList.add("card-hover");
@@ -211,6 +239,8 @@ var createProject = () => {
             var cardImage = document.createElement("img");
             cardImage.src = project.src;
             cardImage.classList.add("card-image");
+            // addAOS(cardImage, {"":"zoom-out-down", "duration":"300", "delay":""+imgDelay+""});
+            // imgDelay += 200;
             
             // Project title
             var cardTitle = document.createElement("h2");
@@ -239,6 +269,7 @@ var createContact = () =>{
 
     var leftPart = document.createElement("div");
     leftPart.classList.add("left-part");
+    addAOS(leftPart, {"":"fade-right", "duration":"600"})
 
     var headDiv = document.createElement("div");
     var h1 = document.createElement("h1");
@@ -258,7 +289,7 @@ var createContact = () =>{
     contact.appendChild(leftPart);
     
     var rightPart = document.createElement("div");
-
+    addAOS(rightPart, {"":"fade-left", "duration":"600"})
     // On right create a form
     rightPart.classList.add("right-part");
 
@@ -324,6 +355,7 @@ var createContact = () =>{
     submitButton.setAttribute("type", "submit");
     submitButton.innerHTML = "Send Message <i class='fa-solid fa-paper-plane'></i>";
     submitButton.classList.add("primary-btn");
+    addAOS(submitButton, {"":"fade-up", "duration":"500", "delay":"600", "anchor-placement":"bottom-bottom"})
 
     buttonDiv.appendChild(submitButton);
     form.appendChild(buttonDiv);
@@ -340,6 +372,7 @@ var createSkills = () =>{
     skills.id = "skills";
 
     var headDiv = document.createElement("div");
+    addAOS(headDiv, {"":"flip-up", "duration":"600"})
     headDiv.classList.add("head-div");
     var h1 = document.createElement("h1");
     h1.innerHTML = "My <span>skills<span>";
@@ -348,10 +381,6 @@ var createSkills = () =>{
 
     var skillset = document.createElement("div");
     skillset.classList.add("skillset");
-
-   
-
-
 
     fetch("./skillset.json")
     .then(response =>{
@@ -369,11 +398,18 @@ var createSkills = () =>{
             var skillDiv = document.createElement("div");
 
             var skillCategory = document.createElement("h2");
+            addAOS(skillCategory, {"":"fade-down", "duration":"400"});
             skillCategory.innerText = skill.category;
             skillDiv.appendChild(skillCategory);
 
+            var duration = 300;
+            var delay = duration;
+            var speed = duration;
+        
             skill.skills.forEach(curSkill =>{
                 var p = document.createElement("p");
+                addAOS(p, {"":"fade-up", "duration":""+duration+"", "delay":""+delay+""})
+                delay += speed;
                 p.innerText = curSkill;
                 skillDiv.appendChild(p);
             })
@@ -381,6 +417,7 @@ var createSkills = () =>{
             if(counter !== skillLength){
                  // creating a seperator to seperate categories
                 var seperator = document.createElement("div");
+                addAOS(seperator, {"":"fade-in", "duration":"500"})
                 seperator.classList.add("seperator");
                 seperator.innerHTML= "";
                 skillset.appendChild(seperator);
@@ -402,6 +439,7 @@ var createCertificate = () => {
 
 
     var headDiv = document.createElement("div");
+    addAOS(headDiv, {"":"fade-down", "duration":"400"})
     headDiv.classList.add("head-div");
 
     var heading = document.createElement("h1");
@@ -419,10 +457,27 @@ var createCertificate = () => {
     .then(data =>{
         const certifications = data.certificates;
 
+        let cnt = 0;
+        let size = certifications.length/2;
+        let duration = 200, delay = 0;
+
         certifications.forEach(certificate => {
 
             var certificateContainer = document.createElement("div");
             certificateContainer.classList.add("certificate-container");
+            if(cnt < size){
+                addAOS(certificateContainer, 
+                    {"":"fade-right","offset":"300","easing":"ease-in-sine","delay":""+delay+"", "duration":""+duration+""});
+                delay = duration;
+                duration += 200;        
+            }else{
+                addAOS(certificateContainer, 
+                    {"":"fade-left","offset":"300","easing":"ease-in-sine","delay":""+delay+"", "duration":""+duration+""});
+                delay = duration;
+                duration -= 200;        
+            }
+            
+            cnt++;
 
             var viewBtn = document.createElement("button");
             viewBtn.type = "button";
@@ -472,13 +527,13 @@ var createCertificate = () => {
             title.innerText = certificate.title;
             textContainer.appendChild(title);
 
-            var issuedOn = document.createElement("p");
-            issuedOn.innerText = "Issued on: " + certificate.issuedon;
-            textContainer.appendChild(issuedOn);
+            // var issuedOn = document.createElement("p");
+            // issuedOn.innerText = "Issued on: " + certificate.issuedon;
+            // textContainer.appendChild(issuedOn);
 
-            var issuedBy = document.createElement("p");
-            issuedBy.innerText = "Issued by: " + certificate.issuedby;
-            textContainer.appendChild(issuedBy);
+            // var issuedBy = document.createElement("p");
+            // issuedBy.innerText = "Issued by: " + certificate.issuedby;
+            // textContainer.appendChild(issuedBy);
 
             certificateContainer.appendChild(textContainer);
             container.appendChild(certificateContainer);
@@ -494,7 +549,7 @@ var createSocialLink = () =>{
 
     var socialLink = document.createElement("div");
     socialLink.id = "social-link";
-
+    addAOS(socialLink, {"":"zoom-in-right", "duration":"1000"})
     // LinkedIn
     // Instagram
     // Github
@@ -508,6 +563,7 @@ var createSocialLink = () =>{
         links = data.social;
         links.forEach(link =>{
             var tag = document.createElement("a");
+            addAOS(tag, {"":"zoom-in", "delay":"200", "duration":"800"})
             tag.href = link.link;
             tag.title = link.title;
             tag.target = "_blank";
@@ -515,10 +571,6 @@ var createSocialLink = () =>{
             socialLink.appendChild(tag);
         })
     })
-
-    
-
-
 
     return socialLink;
 }
