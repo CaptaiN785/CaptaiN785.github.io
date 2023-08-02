@@ -6,7 +6,7 @@
         },
         {
             "category": "Web Dev",
-            "skills":["HTML", "CSS", "Javascript"]
+            "skills":["HTML", "CSS", "Javascript", "React", "Express"]
         },
         {
             "category": "Data Science",

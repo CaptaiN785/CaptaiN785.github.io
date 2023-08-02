@@ -27,11 +27,18 @@ html{
     border-bottom: 1px solid var(--primary-dark);
 }
 .nav{
+    position: relative;
     margin:0 auto;
     padding:1rem 4rem;
     max-width: var(--max-width);
     display: flex;
     justify-content: space-between;
+}
+@media screen and (max-width:500px) {
+    .nav{
+        max-width: 100%;
+        padding:1rem;
+    }
 }
 .logo{
     font-size:2rem;
@@ -42,21 +49,93 @@ html{
     color:var(--primary-light);
     font-weight:bolder;
 }
+.links-wrapper{
+    position:relative;
+    width:max-content;
+    width:40px;
+    height:40px;
+    text-align: right;
+    overflow: hidden;
+    background:rgba(255, 255, 255, 0.1);
+    border-radius: 40px;
+
+}
+.links-wrapper:hover{
+    overflow: visible;
+    background: none;
+}
+.links-wrapper:hover .links{
+    /* display: flex; */
+    animation: down-ward 0.5s ease-in;
+}
+.links-wrapper:hover .links::before{
+    position:absolute;
+    content:'';
+    width:38px;
+    height:100%;
+    top:0;
+    right:0;
+    background:rgba(255, 255, 255, 0.1);
+    z-index:-1;
+    border-radius: 40px;
+}
 .links{
+    z-index:2;
+    display: none;
+    position: absolute;
     display: flex;
+    right:0;
+    top: 2px;
     gap:1rem;
-    margin:auto 0;
+    flex-direction: column;
+    width:max-content;
+    overflow: hidden;
+}
+@keyframes down-ward {
+    0%{
+        top:-500%;
+    }
+    100%{
+        top:2px;
+    }
 }
 .links a{
     color:var(--white-color);
     font-weight:300;
     font-size: 1.1rem;
+    text-align: right;
+    padding:5px 10px;
+    border-radius: 40px;;
 }
 .links a:first-child{
     color:var(--primary-light);
     font-weight: bold;
 }
-
+.links a i{
+    margin-left:5px;
+}
+.links a span{
+    position: relative;
+    display: none;
+    animation-delay: 1s;
+    animation:anim-left 0.3s linear;
+}
+@keyframes anim-left {
+    0%{
+        right:-100%;
+    }
+    100%{
+        right:0;
+    }
+}
+.links a:hover{
+    color:#fff;
+    /* color:var(--primary-light); */
+    background:var(--primary-light);
+}
+.links a:hover span{
+    display: inline;
+}
 
 
 /* Home section */
@@ -773,7 +852,7 @@ html{
 /* Social links */
 #social-link{
     position:fixed;
-    top:50%;
+    top:400px;
     left:0;
     width:45px;
     transform: translateY(-50%);

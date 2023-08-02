@@ -4,7 +4,7 @@ var body = document.getElementById("body");
 var createLink = (link, text, target = "_self") =>{
     var a = document.createElement("a");
     a.href = link;
-    a.innerText = text;
+    a.innerHTML = text;
     a.target = target;
     return a;
 }
@@ -30,7 +30,7 @@ var createNavBar = ()=>{
 
     nav.classList.add("nav");
     var logoDiv = document.createElement("div");
-    var linksDiv = document.createElement("div");
+    
     var closeDiv = document.createElement("div");
 
     // creating logo links
@@ -47,12 +47,16 @@ var createNavBar = ()=>{
     addAOS(logoDiv, {"":"fade-down", "duration":"400"});
 
     // creating links
-    var home = createLink("#home", "Home");
-    var aboutme = createLink("#aboutme", "About me");
-    var projects = createLink("#projects", "Projects");
-    var skills = createLink("#skills", "Skills");
-    var certificates = createLink("#certificates", "Certifications");
-    var contact = createLink("#contact", "Contact me");
+    var linksDivWrapper = document.createElement("div");
+    linksDivWrapper.classList.add("links-wrapper");
+    
+    var linksDiv = document.createElement("div");
+    var home = createLink("#home", "<span>Home</span> <i class='fa-solid fa-house'></i>");
+    var aboutme = createLink("#aboutme", "<span>About me</span> <i class='fa-solid fa-circle-info'></i>");
+    var projects = createLink("#projects", "<span>Projects</span> <i class='fa-solid fa-print'></i>");
+    var skills = createLink("#skills", "<span>Skills</span> <i class='fa-solid fa-book'></i>");
+    var certificates = createLink("#certificates", "<span>Certifications</span> <i class='fa-solid fa-clipboard'></i>");
+    var contact = createLink("#contact", "<span>Contact me</span> <i class='fa-solid fa-mobile-screen'></i>");
     linksDiv.appendChild(home);
     linksDiv.appendChild(aboutme);
     linksDiv.appendChild(projects);
@@ -60,9 +64,11 @@ var createNavBar = ()=>{
     linksDiv.appendChild(certificates);
     linksDiv.appendChild(contact);
     linksDiv.classList.add("links");
-    nav.appendChild(linksDiv);
-    addAOS(linksDiv, {"":"fade-down","duration":"600", "delay":"400"});
 
+    linksDivWrapper.appendChild(linksDiv);
+
+    nav.appendChild(linksDivWrapper);
+    // addAOS(linksDiv, {"":"fade-down","duration":"600", "delay":"400"});
 
     // Close button operations
     // later on
@@ -106,7 +112,7 @@ var createHomePage = () => {
     downloadCV.href = "#";
     downloadCV.innerHTML = "Download CV <i class='fa-sharp fa-solid fa-download'></i>";
     btnDiv.appendChild(hireMe);
-    btnDiv.appendChild(downloadCV);
+    // btnDiv.appendChild(downloadCV);
     addAOS(btnDiv, {"":"fade-up", "duration":"400", "delay":"500"})
 
     textDiv.appendChild(name);
@@ -294,7 +300,7 @@ var createContact = () =>{
     rightPart.classList.add("right-part");
 
     var form = document.createElement("form");
-    form.action = "/";
+    form.action = "mailto:thakurmukeshkumar785@gmail.com";
     form.method = "GET";
 
     var inputDiv = document.createElement("div");
