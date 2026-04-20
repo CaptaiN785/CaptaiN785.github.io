@@ -553,6 +553,12 @@ a { color: inherit; text-decoration: none; }
     radial-gradient(400px 200px at 20% 20%, rgba(255,158,206,.3), transparent 60%),
     #0a0c14;
 }
+.proj-gradient.g5 {
+  background:
+    radial-gradient(500px 220px at 20% 50%, rgba(167,139,250,.4), transparent 60%),
+    radial-gradient(400px 220px at 85% 30%, rgba(99,255,176,.3), transparent 60%),
+    #0a0c14;
+}
 .proj-hud {
   position: absolute; top: 14px; left: 14px; right: 14px;
   display: flex; justify-content: space-between;
@@ -882,6 +888,7 @@ a { color: inherit; text-decoration: none; }
         <ul>
           <li><strong>−80% memory footprint.</strong> Reduced front-end consumption from 2 GB+ to 400 MB.</li>
           <li><strong>Real-time AI enrichment pipeline</strong> labelling every customer–agent conversation with intent & sentiment.</li>
+          <li><strong>Gmail → Richpanel sync pipeline</strong> — scale-agnostic ingestion of any mailbox into Richpanel as tickets; backfill + live stream, deduped and threaded.</li>
           <li><strong>Returns platform</strong> — end-to-end architecture with automated label generation and workflow orchestration.</li>
           <li>Owned multi-module system design across Nest.js, Vue.js, MongoDB, DynamoDB, PostgreSQL, and Neo4j.</li>
         </ul>
@@ -993,6 +1000,37 @@ a { color: inherit; text-decoration: none; }
            Calendar, Tasks, and Slack. Multiple MCP servers, secure auth, automated workflows.</p>
         <div class="chips">
           <span>MCP</span><span>LLM</span><span>Node.js</span><span>OAuth</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj-card reveal" data-tilt>
+      <div class="proj-cover">
+        <div class="proj-gradient g5"></div>
+        <div class="proj-hud">
+          <span>/gmail-sync</span>
+          <span>Richpanel</span>
+        </div>
+        <div class="proj-ascii" aria-hidden="true">
+<pre>
+ ✉ gmail ─▶ [ watcher ]
+           [  queue  ]
+           [worker × N]
+                │
+                ▼
+          🎫 richpanel
+</pre>
+        </div>
+      </div>
+      <div class="proj-body">
+        <h3>Gmail → Richpanel Sync Pipeline</h3>
+        <p>Scale-agnostic sync that ingests <strong>every</strong> message from any
+           Gmail mailbox into Richpanel as a ticket — backfills decade-old inboxes
+           and streams new mail in real time, fully deduped and threaded. Mailbox
+           size is no longer a ceiling.</p>
+        <div class="chips">
+          <span>Gmail API</span><span>Pub/Sub</span><span>Nest.js</span>
+          <span>Queue</span><span>Idempotency</span>
         </div>
       </div>
     </article>
