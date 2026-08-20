@@ -470,6 +470,22 @@ a { color: inherit; text-decoration: none; }
   transition: border-color .2s, color .2s;
 }
 .chips span:hover { border-color: var(--accent); color: var(--accent); }
+.ship-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.ship-links a {
+  font-family: var(--ff-mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border: 1px solid var(--panel-br);
+  border-radius: 999px;
+  color: var(--ink-dim);
+  text-decoration: none;
+  transition: all .3s var(--ease);
+}
+.ship-links a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
+.ship-links a.primary { border-color: rgba(124,249,255,.35); color: var(--accent); }
+.ship-links a.primary:hover { background: rgba(124,249,255,.08); }
 .stack-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -714,6 +730,7 @@ a { color: inherit; text-decoration: none; }
     <a href="#work">Work</a>
     <a href="#stack">Stack</a>
     <a href="#projects">Projects</a>
+    <a href="#shipped">Shipped</a>
     <a href="#contact">Contact</a>
   </nav>
   <a class="btn-ghost" href="mailto:thakurmukeshkumar785@gmail.com">
@@ -1117,10 +1134,127 @@ a { color: inherit; text-decoration: none; }
   </div>
 </section>
 
+<!-- ====== SHIPPED ====== -->
+<section id="shipped" class="section">
+  <div class="section-head reveal">
+    <span class="eyebrow">05 / Shipped</span>
+    <h2>Extensions &amp; packages <span class="muted">anyone can install.</span></h2>
+  </div>
+
+  <div class="proj-grid">
+    <article class="proj-card reveal" data-tilt>
+      <div class="proj-cover">
+        <div class="proj-gradient g4"></div>
+        <div class="proj-hud">
+          <span>/html-to-markdown</span>
+          <span>Chrome Web Store</span>
+        </div>
+        <div class="proj-ascii" aria-hidden="true">
+<pre>
+ ┌─ &lt;article&gt; ──┐
+ │   hover  ⌖   │
+ └─────┬───────┘
+       ▼
+ # Heading
+ **bold**  [link]
+ ``` code ```
+</pre>
+        </div>
+      </div>
+      <div class="proj-body">
+        <h3>HTML to Markdown Clipper</h3>
+        <p>A visual element picker for any webpage — hover, click, and the element
+           lands in your clipboard as clean Markdown. A <strong>full HTML parser runs
+           locally</strong>: headings, inline styles, links, images, fenced code with
+           language detection, tables, nested lists, blockquotes. No servers, no API
+           keys, zero data collected.</p>
+        <div class="chips">
+          <span>Chrome Extension</span><span>Manifest V3</span><span>JavaScript</span><span>Zero-config</span>
+        </div>
+        <div class="ship-links">
+          <a class="primary" href="https://chromewebstore.google.com/detail/efohhiedamdppaclpfgkidleohnkigbn" target="_blank" rel="noopener">Add to Chrome</a>
+          <a href="https://captain785.github.io/html-to-markdown-clipper/" target="_blank" rel="noopener">Site</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj-card reveal" data-tilt>
+      <div class="proj-cover">
+        <div class="proj-gradient g2"></div>
+        <div class="proj-hud">
+          <span>/quick-shortcuts</span>
+          <span>npm</span>
+        </div>
+        <div class="proj-ascii" aria-hidden="true">
+<pre>
+ ╭────────────────╮
+ │ ⌘K  search…      │
+ ├────────────────┤
+ │ ▸ open settings  │
+ │   invite a user  │
+ │   new project    │
+ ╰────────────────╯
+</pre>
+        </div>
+      </div>
+      <div class="proj-body">
+        <h3>Quick Shortcuts</h3>
+        <p>A Vue 3 + TypeScript component that drops a <strong>command palette</strong>
+           into any app — keyboard-first search across the actions that matter, so users
+           reach them without hunting through menus. Published to npm with full docs.</p>
+        <div class="chips">
+          <span>Vue 3</span><span>TypeScript</span><span>npm</span><span>UI Package</span>
+        </div>
+        <div class="ship-links">
+          <a class="primary" href="https://www.npmjs.com/package/quick-shortcuts" target="_blank" rel="noopener">npm</a>
+          <a href="https://captain785.github.io/quick-shortcuts/" target="_blank" rel="noopener">Docs</a>
+          <a href="https://github.com/CaptaiN785/quick-shortcuts" target="_blank" rel="noopener">Source</a>
+        </div>
+      </div>
+    </article>
+
+    <article class="proj-card reveal" data-tilt>
+      <div class="proj-cover">
+        <div class="proj-gradient g3"></div>
+        <div class="proj-hud">
+          <span>/password-vault</span>
+          <span>2026</span>
+        </div>
+        <div class="proj-ascii" aria-hidden="true">
+<pre>
+    ◉ Touch ID
+        │  PRF
+   ┌────┼─────┐
+   │  AES-GCM  │
+   └────┬─────┘
+     ▾ autofill
+   ✘ no network
+</pre>
+        </div>
+      </div>
+      <div class="proj-body">
+        <h3>Password Vault</h3>
+        <p>A password manager that never leaves the machine. Shortcut autofill,
+           save-on-login, and <strong>Touch ID unlock via the WebAuthn PRF extension</strong> —
+           the Secure Enclave returns a secret that wraps the vault's AES key, so the
+           wrapped key on disk is useless without the authenticator. No account, no sync,
+           no servers, no dependencies.</p>
+        <div class="chips">
+          <span>Chrome Extension</span><span>Manifest V3</span><span>WebAuthn PRF</span><span>AES-GCM</span><span>Zero-dep</span>
+        </div>
+        <div class="ship-links">
+          <a class="primary" href="https://github.com/CaptaiN785/password-vault-extension" target="_blank" rel="noopener">Source</a>
+          <a href="https://captain785.github.io/password-vault/" target="_blank" rel="noopener">Site</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
 <!-- ====== ACHIEVEMENTS ====== -->
 <section class="section">
   <div class="section-head reveal">
-    <span class="eyebrow">05 / Signals</span>
+    <span class="eyebrow">06 / Signals</span>
     <h2>Academic &amp; community <span class="muted">proof-of-work.</span></h2>
   </div>
 
@@ -1159,7 +1293,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ====== CONTACT ====== -->
 <section id="contact" class="section contact">
   <div class="contact-card reveal">
-    <span class="eyebrow">06 / Contact</span>
+    <span class="eyebrow">07 / Contact</span>
     <h2>Let's build <span class="gradient">something ambitious.</span></h2>
     <p>I'm open to senior IC roles, freelance collabs, and any problem where
        AI meets product. Reply usually under 24 hours.</p>
