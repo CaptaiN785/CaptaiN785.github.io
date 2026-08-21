@@ -1248,6 +1248,41 @@ a { color: inherit; text-decoration: none; }
         </div>
       </div>
     </article>
+
+    <article class="proj-card reveal" data-tilt>
+      <div class="proj-cover">
+        <div class="proj-gradient g5"></div>
+        <div class="proj-hud">
+          <span>/react-if-directive</span>
+          <span>npm</span>
+        </div>
+        <div class="proj-ascii" aria-hidden="true">
+<pre>
+ {ok ? &lt;A/&gt; : &lt;B/&gt;}
+          │
+          ▾
+ &lt;A r-if={ok} /&gt;
+ &lt;B r-else /&gt;
+ ── zero runtime ──
+</pre>
+        </div>
+      </div>
+      <div class="proj-body">
+        <h3>React If Directive</h3>
+        <p>Conditional rendering as attributes — <strong>r-if</strong>, <strong>r-else-if</strong>
+           and <strong>r-else</strong> sit on the element itself instead of nesting ternaries
+           inside JSX. A Vite plugin rewrites them to standard React <strong>at build time, so
+           nothing ships at runtime</strong>, with an ESLint plugin that flags broken chains in
+           the editor and TypeScript types for autocomplete.</p>
+        <div class="chips">
+          <span>React</span><span>TypeScript</span><span>Vite Plugin</span><span>ESLint</span><span>npm</span>
+        </div>
+        <div class="ship-links">
+          <a class="primary" href="https://www.npmjs.com/package/react-if-directive" target="_blank" rel="noopener">npm</a>
+          <a href="https://github.com/CaptaiN785/react-if-directive" target="_blank" rel="noopener">Source</a>
+        </div>
+      </div>
+    </article>
   </div>
 </section>
 
